@@ -16,16 +16,16 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case onboarding:
-        return MaterialPageRoute(builder: (_) => const Onboarding());
+        return MaterialPageRoute(builder: (_) =>  Onboarding());
 
       case home:
-        return MaterialPageRoute(builder: (_) => const Home());
+        return MaterialPageRoute(builder: (_) =>  Home());
 
       case signup:
-        return MaterialPageRoute(builder: (_) => const SignUp());
+        return MaterialPageRoute(builder: (_) =>  SignUp());
 
       case login:
-        return MaterialPageRoute(builder: (_) => const Login());
+        return MaterialPageRoute(builder: (_) => Login());
 
       default:
         throw FormatException("Route does not exist");
