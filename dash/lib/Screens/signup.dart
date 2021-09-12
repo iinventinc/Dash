@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
 
@@ -32,20 +31,24 @@ class SignUp extends StatelessWidget {
                 height: 30,
               ),
               Container(
-                  alignment: Alignment.topLeft,
-                  child: Text("Enter your mobile number",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                      ))),
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Enter your mobile number",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
               SizedBox(height: 10),
               Container(
                 alignment: Alignment.center,
                 height: 50,
                 width: 400,
                 decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
               SizedBox(height: 100),
               TextButton(
@@ -111,23 +114,16 @@ class SignUp extends StatelessWidget {
                 height: 30,
               ),
 
-              Container(
-                  alignment: Alignment.topLeft,
-                  child: Text("Enter your mobile number",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                      ))),
-
               SizedBox(height: 10),
 //ALLOW PERMISSION TO READ CONTACTS
-              Container(
-                alignment: Alignment.center,
-                height: 50,
-                width: 400,
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(30)),
+              TextFormField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30),
+                      ),
+                    ),
+                    hintText: 'Enter your phone number'),
               ),
 
               SizedBox(height: 100),

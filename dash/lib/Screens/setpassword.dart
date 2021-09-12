@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +7,6 @@ class SetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //FOR ALL DEVICES AS DEFAULT
-    var _usernumber;
-
-    var timertoresendotp;
 
     return Scaffold(
       appBar: AppBar(
