@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
                             ),
                             hintText: 'Where are you ?',
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
+                              borderRadius: BorderRadius.circular(25),
                             ),
                           ),
                         ),
@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
                               color: Colors.red,
                             ),
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
+                              borderRadius: BorderRadius.circular(25),
                             ),
                           ),
                         ),
@@ -90,13 +90,20 @@ class _HomeState extends State<Home> {
                       ),
                       SizedBox(
                         height: 50,
-                        width: 380,
+                        width: 370,
                         child: ElevatedButton(
-                          style: ButtonStyle(),
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0),
+                              ),
+                            ),
+                          ),
                           onPressed: () {},
                           child: Text(
                             'Order Ride',
-                            style: GoogleFonts.roboto(fontSize: 16.0),
+                            style: GoogleFonts.roboto(fontSize: 20.0),
                           ),
                         ),
                       ),
