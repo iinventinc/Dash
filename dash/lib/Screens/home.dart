@@ -44,14 +44,15 @@ class _HomeState extends State<Home> {
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
-                      SizedBox(
-                        height: 50,
-                        width: 380,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           style: GoogleFonts.roboto(fontSize: 18.0),
                           decoration: InputDecoration(
+                            fillColor: Colors.grey[200],
+                            filled: true,
                             prefixIcon: Icon(
                               Icons.location_searching_outlined,
                               color: Colors.green,
@@ -66,12 +67,13 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: 20.0,
                       ),
-                      SizedBox(
-                        height: 50,
-                        width: 380,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           style: GoogleFonts.roboto(fontSize: 18.0),
                           decoration: InputDecoration(
+                            fillColor: Colors.grey[200],
+                            filled: true,
                             hintText: 'Where is your destination ?',
                             prefixIcon: Icon(
                               Icons.location_on,
@@ -90,13 +92,14 @@ class _HomeState extends State<Home> {
                         height: 50,
                         width: 380,
                         child: ElevatedButton(
+                          style: ButtonStyle(),
                           onPressed: () {},
                           child: Text(
                             'Order Ride',
                             style: GoogleFonts.roboto(fontSize: 16.0),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
