@@ -76,7 +76,7 @@ class _OnboardingState extends State<Onboarding> {
                   ElevatedButton(
                     style: ButtonStyle(),
                     onPressed: () {
-                      Navigator.of(context).pushNamed(RouteGenerator.signup);
+                      Navigator.of(context).pushNamed(RouteGenerator.home);
                     },
                     child: Text(
                       'Getting Started',
