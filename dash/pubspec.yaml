@@ -26,11 +26,44 @@ dependencies:
 
 
   # The following adds the Cupertino Icons font to your application.
+  
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^2.1.0
-  google_maps_flutter: ^2.0.10
 
+  #for showcasing google maps
+  google_maps_flutter: 
+
+  #for making directions with polylines and route to driver
+  google_maps_widget: ^0.0.8
+
+  #google maps for web
+  google_maps_flutter_web: ^0.3.1
+
+  #for launching url in the app instead of taking user out
+  url_launcher: ^6.0.12
+
+
+#sticky bottom sheet for the enter form field
+  bottom_sheet: ^1.0.1
+
+#for permission for android and ios
+  permission_handler: ^8.1.6
+#for selecting country codes for otp verification
+  country_code_picker: ^2.0.2
+
+#for state management 
+  provider: 
+  
+#google directions for implementing directions for orders and rides
+  google_directions_api: 
+  #floating search bar for searching for places to go to 
+  material_floating_search_bar: 
+ #for location of user
+  location: 
+
+  #for http requests
+  http:
 dev_dependencies:
   flutter_test:
     sdk: flutter
