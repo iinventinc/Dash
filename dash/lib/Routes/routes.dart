@@ -20,6 +20,8 @@ class RouteGenerator {
   static const String profile = '/profile';
   static const String legal = '/legal';
   static const String edithome = '/edithome';
+  static const String promotions = '/promotions';
+  
 
   RouteGenerator._() {}
 

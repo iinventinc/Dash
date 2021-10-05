@@ -47,128 +47,78 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _drawerKey.currentState?.openDrawer();
   }
 
-  void _showBottomSheet() {}
-  // Widget addStops() {
-  //   return TextButton(
-  //     child: Expanded(
-  //       child: Container(
-  //         padding: EdgeInsets.all(8.0),
-  //         height: 50,
-  //         width: 120,
-  //         decoration: BoxDecoration(
-  //           color: Colors.blue[200],
-  //           borderRadius: BorderRadius.circular(30),
-  //         ),
-  //         child: Row(
-  //           children: [
-  //             Icon(
-  //               Icons.add_location_alt_outlined,
-  //               color: Colors.black,
-  //             ),
-  //             Text("Add stops", style: mystyle),
-  //           ],
-  //         ),
-  //       ),
-  //     ),
-  //     onPressed: () {},
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // bottomSheet: MyBottomSheet(),
         key: _drawerKey,
-
         drawer: MyDrawer(),
-
         body: SafeArea(
           child: Container(
             child: Column(
               children: [
                 Align(
-                    alignment: Alignment.topLeft,
-                    child: IconButton(
-                        icon: Icon(Icons.menu),
-                        iconSize: 30,
-                        splashColor: Colors.blue,
-                        color: Colors.black,
-                        onPressed: () {
-                          _showDrawer();
-                        })),
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                      icon: Icon(Icons.menu),
+                      iconSize: 30,
+                      splashColor: Colors.blue,
+                      color: Colors.black,
+                      onPressed: () {
+                        _showDrawer();
+                      }),
+                ),
                 Container(
-                
                   width: double.infinity,
-                  height: 400,
+                  height: 600,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                   ),
-                  child: GoogleMap(
-                    initialCameraPosition:
-                        CameraPosition(target: _center, zoom: 11.0),
-                    zoomControlsEnabled: false,
-                    onMapCreated: _onMapCreated,
+                  child: Stack(
+                    children: <Widget>[
+                      GoogleMap(
+                        initialCameraPosition:
+                            CameraPosition(target: _center, zoom: 11.0),
+                        zoomControlsEnabled: false,
+                        onMapCreated: _onMapCreated,
+                      ),
+                      Positioned(
+                        top: 10,
+                        right: 15,
+                        left: 15,
+                        child: Container(
+                          color: Colors.white,
+                          child: Row(
+                            children: <Widget>[
+                              IconButton(
+                                onPressed: () {
+                                  _showDrawer();
+                                },
+                                icon: Icon(Icons.menu),
+                              ),
+                              Expanded(
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText:
+                                          'Where does thou go? Hogwarts?'),
+                                  cursorColor: Colors.black,
+                                  onTap: () {},
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ],
             ),
           ),
         ),
-      bottomNavigationBar: MyBottomNavBar(),
+        bottomNavigationBar: MyBottomNavBar(),
       ),
     );
   }
-
-  Widget buildFloatingSearchBar() {
-    final isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
-
-    return FloatingSearchBar(
-      hint: 'Search...',
-      scrollPadding: const EdgeInsets.only(top: 16, bottom: 56),
-      transitionDuration: const Duration(milliseconds: 800),
-      transitionCurve: Curves.easeInOut,
-      physics: const BouncingScrollPhysics(),
-      axisAlignment: isPortrait ? 0.0 : -1.0,
-      openAxisAlignment: 0.0,
-      width: isPortrait ? 600 : 500,
-      debounceDelay: const Duration(milliseconds: 500),
-      onQueryChanged: (query) {
-        // Call your model, bloc, controller here.
-      },
-      // Specify a custom transition to be used for
-      // animating between opened and closed stated.
-      transition: CircularFloatingSearchBarTransition(),
-      actions: [
-        FloatingSearchBarAction(
-          showIfOpened: false,
-          child: CircularButton(
-            icon: const Icon(Icons.place),
-            onPressed: () {},
-          ),
-        ),
-        FloatingSearchBarAction.searchToClear(
-          showIfClosed: false,
-        ),
-      ],
-      builder: (context, transition) {
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Material(
-            color: Colors.white,
-            elevation: 4.0,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: Colors.accents.map((color) {
-                return Container(height: 112, color: color);
-              }).toList(),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-
 }
