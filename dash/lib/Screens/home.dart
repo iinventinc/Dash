@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'exportscreen.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -16,26 +15,17 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   late GoogleMapController mapController;
-  final Set<Marker> _markers = {};
-  final Set<Polyline> _polylines = {};
-  late AnimationController _animationController;
-  late bool isPlaying = false;
-//  final Animation<double> myAnimation;
-  final LatLng _center = const LatLng(9.095470, 7.409420);
-  GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
-  bool _formfilled = false;
-  TextEditingController _myLocation = TextEditingController();
-  TextEditingController _myDestination = TextEditingController();
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
 
+  final LatLng _center = const LatLng(9.095470, 7.409420);
+  GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 450));
   }
 
   @override
@@ -65,6 +55,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   CameraPosition(target: _center, zoom: 11.0),
               zoomControlsEnabled: false,
               onMapCreated: _onMapCreated,
+              myLocationEnabled: true,
             ),
             Positioned(
               top: 40,
@@ -199,6 +190,26 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       ),
                     )
                   ],
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: EdgeInsets.only(right: 10.0, bottom: 10.0),
+                child: ClipOval(
+                  child: Material(
+                    color: Colors.blue[400],
+                    child: InkWell(
+                      splashColor: Colors.blue,
+                      child: SizedBox(
+                        width: 56,
+                        height: 56,
+                        child: Icon(Icons.my_location),
+                      ),
+                      onTap: () {},
+                    ),
+                  ),
                 ),
               ),
             )
