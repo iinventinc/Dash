@@ -2,6 +2,8 @@ import 'package:dash/Screens/MyBnb.dart';
 import 'package:dash/Screens/drawer.dart';
 import 'package:dash/util/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'exportscreen.dart';
@@ -14,7 +16,45 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  final Geolocator _geolocator = Geolocator();
   late GoogleMapController mapController;
+  late Position _currentPosition;
+  late String _currentAddress;
+
+  _getCurrentLocation() async {
+    await _geolocator;
+    Geolocator.getCurrentPosition(
+            desiredAccuracy: LocationAccuracy.best,
+            forceAndroidLocationManager: true)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+
+        mapController.animateCamera(CameraUpdate.newCameraPosition(
+          CameraPosition(
+              target: LatLng(position.latitude, position.longitude),
+              zoom: 18.0),
+        ));
+      });
+      _getAddressFromlatLng();
+    }).catchError((e) {
+      print(e);
+    });
+  }
+
+  _getAddressFromlatLng() async {
+    try {
+      List<Placemark> placemarks = await placemarkFromCoordinates(
+          _currentPosition.latitude, _currentPosition.longitude);
+      Placemark place = placemarks[0];
+      setState(() {
+        _currentAddress =
+            "${place.locality} ,${place.postalCode}, ${place.country}";
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -26,6 +66,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    _getCurrentLocation();
   }
 
   @override
@@ -207,12 +248,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         height: 56,
                         child: Icon(Icons.my_location),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        _getCurrentLocation();
+                      },
                     ),
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
