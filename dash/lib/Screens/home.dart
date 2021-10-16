@@ -18,8 +18,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   final Geolocator _geolocator = Geolocator();
   late GoogleMapController mapController;
-  late Position _currentPosition;
+  Position? _currentPosition;
   late String _currentAddress;
+
+  final startAddressController = TextEditingController();
+  final destinationAddressController = TextEditingController();
+
+  String _startAddress = '';
+  String _destinationAdrress = '';
+  late String _PlaceDistance;
+
+  Set<Marker> markers = {};
 
   _getCurrentLocation() async {
     await _geolocator;
@@ -45,11 +54,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   _getAddressFromlatLng() async {
     try {
       List<Placemark> placemarks = await placemarkFromCoordinates(
-          _currentPosition.latitude, _currentPosition.longitude);
+          _currentPosition!.latitude, _currentPosition!.longitude);
       Placemark place = placemarks[0];
       setState(() {
         _currentAddress =
             "${place.locality} ,${place.postalCode}, ${place.country}";
+
+        startAddressController.text = _currentAddress;
+        _startAddress = _currentAddress;
       });
     } catch (e) {
       print(e);
@@ -229,7 +241,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                               });
                         },
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -250,6 +262,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       ),
                       onTap: () {
                         _getCurrentLocation();
+                        if (_currentPosition != null) Text(_currentAddress);
+                        Text(
+                            "LAT:${_currentPosition?.latitude}, LNG: ${_currentPosition?.longitude} ");
                       },
                     ),
                   ),
