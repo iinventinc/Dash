@@ -73,7 +73,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   final LatLng _center = const LatLng(9.095470, 7.409420);
-GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -106,9 +106,10 @@ GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
             GoogleMap(
               initialCameraPosition:
                   CameraPosition(target: _center, zoom: 11.0),
-              zoomControlsEnabled: false,
               onMapCreated: _onMapCreated,
+              zoomControlsEnabled: false,
               myLocationEnabled: true,
+              myLocationButtonEnabled: false,
             ),
             Positioned(
               top: 40,
