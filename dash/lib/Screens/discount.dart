@@ -1,4 +1,4 @@
-import 'package:dash/Screens/MyAppbar.dart';
+import 'package:dash/Widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
 
 class Discount extends StatelessWidget {

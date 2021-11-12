@@ -1,12 +1,12 @@
-import 'package:dash/Screens/MyBnb.dart';
-import 'package:dash/Screens/drawer.dart';
+import 'package:dash/Widgets/MyBnb.dart';
+import 'package:dash/Widgets/drawer.dart';
 import 'package:dash/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'exportscreen.dart';
+import '../Widgets/exportscreen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
