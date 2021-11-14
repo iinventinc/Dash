@@ -34,7 +34,7 @@ class OtpScreen extends StatelessWidget {
             Container(
                 alignment: Alignment.topLeft,
                 child:
-                    Text("Please enter the 4-digit code sent to ${_usernumber}",
+                    Text("Please enter the 4-digit code sent to $_usernumber",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 24,

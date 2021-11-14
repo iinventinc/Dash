@@ -28,7 +28,7 @@ class RouteGenerator {
   static const String promotions = '/promotions';
   
 
-  RouteGenerator._() {}
+  RouteGenerator._();
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
