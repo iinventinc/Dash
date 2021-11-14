@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 
-/// simply impport the UI.dart file where you want to use it
-/// and you'll gain access to eveerything in this file
+/// simply import the UI.dart file where you want to use it
+/// and you'll gain access to everything in this file
 
 
 
@@ -24,9 +24,10 @@ Color grey = Color(0xFFEBEDEF);
 Color black = Color(0xFF0E0D0D);
 Color white = Color(0xFFFFF5F5);
 
-/// You can Access the FontStyles by using the . operator
-/// for example AppTheme.headline1
 
+
+/// You can Access the FontStyles by using the . operator
+/// for example 'AppTheme.headline1'
 
 // FontStyles
 class AppTheme {
@@ -77,6 +78,15 @@ class AppTheme {
 
   // Similar to H6 in HTML
   static TextStyle headline6(
+      BuildContext context, Color color, FontWeight? fontWeight) {
+    return TextStyle(
+        color: color,
+        fontSize: MediaQuery.of(context).size.width / 60,
+        fontWeight: fontWeight);
+  }
+
+  // Similar to H6 in HTML
+  static TextStyle headline7(
       BuildContext context, Color color, FontWeight? fontWeight) {
     return TextStyle(
         color: color,

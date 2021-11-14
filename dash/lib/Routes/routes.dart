@@ -1,3 +1,6 @@
+import 'package:dash/Screens/auth/login.dart';
+import 'package:dash/Screens/auth/onboarding.dart';
+import 'package:dash/Screens/auth/signup.dart';
 import 'package:dash/Widgets/customizeride.dart';
 
 import '../Widgets/exportscreen.dart';
@@ -37,9 +40,6 @@ class RouteGenerator {
 
       case signup:
         return MaterialPageRoute(builder: (_) => SignUp());
-      case discount:
-        return MaterialPageRoute(builder: (_) => Discount());
-
       case login:
         return MaterialPageRoute(builder: (_) => Login());
       case orderride:
@@ -49,13 +49,9 @@ class RouteGenerator {
       case orderride:
         return MaterialPageRoute(builder: (_) => OrderRide());
 
-      case ridehistory:
-        return MaterialPageRoute(builder: (_) => RideHistory());
-
       case customizeride:
         return MaterialPageRoute(builder: (_) => CustomizeRide());
-      case discount:
-        return MaterialPageRoute(builder: (_) => Discount());
+      
 
       case orderride:
         return MaterialPageRoute(builder: (_) => OrderRide());
@@ -64,18 +60,9 @@ class RouteGenerator {
       case edithome:
         return MaterialPageRoute(builder: (_) => EditHome());
 
-      case customersupport:
-        return MaterialPageRoute(builder: (_) => CustomerSupport());
-
-      case about:
-        return MaterialPageRoute(builder: (_) => InviteFriends());
+      
       case profile:
         return MaterialPageRoute(builder: (_) => Profile());
-      case legal:
-        return MaterialPageRoute(builder: (_) => Legal());
-
-      case dashdriver:
-        return MaterialPageRoute(builder: (_) => DashDriver());
       default:
         throw FormatException("Route does not exist");
     }
