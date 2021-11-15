@@ -12,11 +12,11 @@ double height(double n, context) {
   return MediaQuery.of(context).size.width / n;
 }
 
-Color primary = Color(0xFF1565C0);
-Color secondary = Color(0xFFE3F2FD);
-Color white = Colors.white;
-Color black = Colors.black;
-Color grey = Color(0xFFEBEDEF);
+const Color primary = Color(0xFF1565C0);
+const Color secondary = Color(0xFFE3F2FD);
+const Color white = Colors.white;
+const Color black = Colors.black;
+const Color grey = Color(0xFFEBEDEF);
 
 class AppTheme {
 
