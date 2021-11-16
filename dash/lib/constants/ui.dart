@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 
-double text(double n, context ) {
-  return MediaQuery.of(context).size.width / n;
-}
+double text(double n, context ) => MediaQuery.of(context).size.width / n;
 
-double width(double n, context) {
-  return MediaQuery.of(context).size.width / n;
-}
+double width(double n, context) => MediaQuery.of(context).size.width / n;
 
-double height(double n, context) {
-  return MediaQuery.of(context).size.width / n;
-}
+double height(double n, context) => MediaQuery.of(context).size.width / n;
 
 const Color primary = Color(0xFF1565C0);
 const Color secondary = Color(0xFFE3F2FD);
+const Color darkGrey = Color(0xFF807B7B);
 const Color white = Colors.white;
 const Color black = Colors.black;
 const Color grey = Color(0xFFEBEDEF);
 
-class AppTheme {
+class AppTheme extends TextStyle{
 
   static headline1(context, Color color, [FontWeight? fontWeight] ) {
     return TextStyle(
