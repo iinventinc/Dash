@@ -3,6 +3,11 @@
    <application
         android:label="dash"
         android:icon="@mipmap/ic_launcher">
+
+         <!-- TODO: Add your Google Maps API key here -->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBllNrE6OCdw4Eq6S9botPMQCV3-B4jdvY"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
