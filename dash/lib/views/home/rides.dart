@@ -19,12 +19,14 @@ class _RidesState extends State<Rides> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: GoogleMap(
           initialCameraPosition: CameraPosition(
             target: _center,
           ),
           onMapCreated: _onMapCreated,
+          zoomControlsEnabled: false,
         ),
       ),
     );
